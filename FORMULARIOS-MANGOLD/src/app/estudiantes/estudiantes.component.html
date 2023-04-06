@@ -1,0 +1,61 @@
+<main class="container-fluid">
+    <section class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Formulario</h5>
+
+        <form [formGroup]="estudianteForm" (ngSubmit)="onsubmit ()" class="row g-3">
+            <div class="col-md-4">
+              <label for="validationDefault01" class="form-label">Nombre</label>
+              <input formControlName="nombre" type="text" [class.is-invalid] ="true" 
+               class="form-control" id="validationDefault01" value="Mark" required>
+
+               <div *ngIf="nombreControl.hasError ('required')" class= "invalid-feedback">
+                debe completar este campo
+               </div>
+
+               <div *ngIf="nombreControl.hasError ('minlength')" class= "invalid-feedback">
+                El largo esperado es de 5 caracteres
+               </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <label for="validationDefault02" class="form-label">Apellido</label>
+              <input formControlName="apellido" type="text" class="form-control" id="validationDefault02" value="Otto" required>
+              <div *ngIf="apellidoControl.hasError ('required')" class= "invalid-feedback">
+                debe completar este campo
+               </div>
+
+               <div *ngIf="apellidoControl.hasError ('minlength')" class= "invalid-feedback">
+                El largo esperado es de 5 caracteres
+               </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <label for="validationDefaultUsername" class="form-label">Correo</label>
+              <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                <input  formControlName="email" type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+                <div *ngIf="emailControl.hasError ('required')" class= "invalid-feedback">
+                  debe completar este campo
+                 </div>
+  
+                 <div *ngIf="emailControl.hasError ('email')" class= "invalid-feedback">
+                  no es un formato email valido
+                 </div>
+              </div>
+            </div>
+
+
+              <div class="col-12">
+              <button class ="brn btn-primaty" type ="submit">Enviar</button>
+              </div>
+            
+            </form>
+        </div>
+        </section>
+  
+  
+     
+  
